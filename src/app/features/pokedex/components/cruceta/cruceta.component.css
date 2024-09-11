@@ -1,0 +1,94 @@
+#cruceta-container{
+    width: 25%;
+    height: 100%;
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+  #cruceta-up, #cruceta-down {
+    width: 100%;
+    height: 2em;
+  }
+  #up{
+    width: 2em;
+    height: 100%;
+    background-color: #4C4D4F;
+    margin: 0 auto;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    cursor:pointer;
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em;
+  }
+  #up:active{
+    background-color: #414243;
+  }
+  #down{
+    width: 2em;
+    height: 100%;
+    background-color: #4C4D4F;
+    margin: 0 auto;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    cursor : pointer;
+    border-bottom-right-radius: .5em;
+    border-bottom-left-radius: .5em;
+  }
+  #down:active{
+    background-color: #414243;
+  }
+  #cruceta-laterales{
+    width: 100%;
+    height: 2em;
+    display: flex;
+    flex-direction: row;
+  }
+  #left{
+    width: 33%;
+    height: 100%;
+    background-color: #4C4D4F;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+    border-bottom-left-radius: .5em;
+    border-top-left-radius: .5em;
+  }
+  #left:active{
+    background-color: #414243;
+  }
+  #center{
+    width: 33%;
+    height: 100%;
+    background-color: #4C4D4F;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  #center:active{
+    background-color: #414243;
+  }
+  #cruceta-action{
+    width: .8em;
+    height: .8em;
+    border: 2px solid black;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  
+  #right{
+    width: 33%;
+    height: 100%;
+    background-color: #4C4D4F;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    cursor: pointer;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+  }
+  #right:active{
+    background-color: #414243;
+  }

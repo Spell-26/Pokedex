@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+html {
+  background: burlywood;
+  box-sizing: border-box;
+}
+
+@font-face{
+  font-family: 'Gill-sans';
+  src: url('/assets/fonts/gill-sans/Gill-Sans.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'Gill-sans', sans-serif;
+  overflow-y: hidden;
+}

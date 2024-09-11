@@ -1,0 +1,141 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #1f1f1f;
+  }
+  .pokedex-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+  }
+  .list{
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    max-height: 80%;
+    overflow-y: scroll;
+    padding-top: 1em;
+  }
+  .pokemon-preview-info{
+    height: 20%;
+    width: 100%;
+
+  }
+  hr{
+    color: white;
+    width: 100%;
+  }
+  
+  .list-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+    min-height: 80px;
+    width: 95%;
+    margin: 0 auto 1em auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    cursor: pointer;
+  }
+  .list-item span{
+    margin-left: 1em;
+    padding-top: 1.2em;
+  }
+  .list-item img{
+    max-height: 80px;
+  }
+  .list-item:hover{
+    background-color: #3a3a3a;
+    border-radius: .5em;
+  }
+  .list-item.selected {
+    background-color: #3a3a3a;
+    border-radius: .5em;
+  }
+  
+  /* POKEMON PREVIEW STYLES*/
+
+  .preview-null-pokemon{
+    width: 98%;
+    height: 90%;
+    margin: 0 auto;
+  }
+  .preview-null-pokemon img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .2em;
+  }
+
+  .preview-pokemon{
+    width: 98%;
+    height: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: aliceblue;
+  }
+  .pokemon-preview-sprite{
+    width: 30%;
+    margin-left: .5em;
+  }
+  .pokemon-preview-sprite img{
+    object-fit:cover;
+    max-width: 50%;
+    max-height: 100%;
+  }
+  .pokemon-preview-types{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .types{
+    margin-right: .5em;
+    padding: .3em;
+    border-radius: .2em;
+    border: 2px solid rgba(128, 128, 128, 0.514);
+  }
+
+  /* PAGINATION */
+  #pagination{
+    position: absolute;
+    bottom: 32%;
+    width: 78%;
+  }
+
+  #next{
+    float: right;
+    opacity: 0.8;
+  }
+  #previous{
+    float: left;
+    opacity: 0.8;
+  }
+  
+
+  /* SCROLLBAR CONFIG */
+  ::-webkit-scrollbar {
+    width: 8px; /* Solo visible el thumb con este ancho */
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(61, 60, 60, 0.644); /* Color del thumb */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer;
+  }
+  
+  /* Track visible solo al hacer hover */
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Track inicialmente invisible */
+  }

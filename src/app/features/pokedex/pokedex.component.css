@@ -1,0 +1,315 @@
+#container-pokedex{
+  position: relative;
+  width: 60vh;
+  height: 90vh;
+  margin: 4em auto 0 auto;
+}
+#pokedex-frame{
+  width: 55vh;
+  height: 85vh;
+  border: 6px solid black;
+  position: absolute;
+  border-radius: 2em;
+  background-color: #D2232A;
+  z-index: 2;
+}
+#pokedex-back{
+  width: 55vh;
+  height: 85vh;
+  border: 6px solid black;
+  position: absolute;
+  border-radius: 2em;
+  z-index: 1;
+  top: 0.8em;
+  left: -0.6em;
+  background-color: #BE2831;
+}
+#pokedex-header{
+  width: 100%;
+  height: 19%;
+  background-image: url("src/assets/gui-assets/pokedex-top-lines.png");
+  display: flex;
+}
+#pokedex-header-leds{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.led{
+  width: 6%;
+  height: 12%;
+  margin: .5em .2em;
+  border: 1px solid blue;
+}
+.led-azul{
+  width: 30% !important;
+  height: 60% !important;
+  margin-left: 0.5em !important;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+#led-interno-azul{
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid black;
+  height: 80%;
+  border-radius: 50%;
+  background-color: #00AEEF;
+}
+.led-rojo{
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: red;
+}
+.led-amarillo{
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: yellow;
+}
+.led-verde {
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: #20d120; /* Color inicial */
+  box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.84); /* Sombra inicial */
+
+  animation: parpadeo 1.5s infinite; /* Animación de parpadeo */
+}
+
+@keyframes parpadeo {
+  0%, 50%, 100% {
+    background-color: #20d120; /* Color cuando está encendido */
+    box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.84); /* Sombra cuando está encendido */
+  }
+  25%, 75% {
+    background-color: #156a15; /* Color cuando está apagado */
+    box-shadow: none; /* Sin sombra cuando está apagado */
+  }
+}
+
+
+
+#pokedex-display-container{
+  position: relative;
+  width: 100%;
+  height: 52vh;
+}
+
+.pokedex-display{
+  width: 80%;
+  margin: 0 auto;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 90%);
+  background-color: black;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+.pokedex-display-frame{
+  width: 98%;
+  margin: 0 auto;
+  height: 98%;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 90%);
+  background-color: white;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+.display-back{
+  position: absolute;
+  top: 0.3em;
+  left: 2em;
+  z-index: 1 !important;
+}
+.display-back .pokedex-display-frame{
+  background-color: #625a5a;
+}
+
+.led-container{
+  width: 100%;
+  height: 6%;
+  margin-bottom: .2em;
+}
+#leds{
+  width: 15%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.leds-rojos{
+  width: 20%;
+  height: 40%;
+  background-color: red;
+  border-radius: 50%;
+  margin: 0 .2em;
+  box-shadow: 0 0 4px rgba(255, 0, 0, 0.8),
+  0 0 20px rgba(255, 0, 0, 0.6),
+  0 0 30px rgba(255, 0, 0, 0.4),
+  0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+#main-content{
+  width: 80%;
+  height: 35vh;
+  border: 3px solid #4C4D4F;
+  margin: 0 auto;
+  background-color: #58595B;
+  box-shadow:
+    3px 3px 5px 0px rgba(0, 0, 0, 0.25), /* sombra derecha */
+    -3px -3px 5px 0px rgba(0, 0, 0, 0.25), /* sombra izquierda */
+    3px -3px 5px 0px rgba(0, 0, 0, 0.25), /* sombra superior */
+    -3px 3px 5px 0px rgba(0, 0, 0, 0.25); /* sombra inferior */
+}
+
+#led-audio{
+  width: 100%;
+  height: 18%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#led-rojo-inferior{
+  width: 2em;
+  height: 2em;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin-left: 2.5em;
+  background-color: red;
+}
+
+#salida-audio{
+  width: 30%;
+  height: 100%;
+  margin-right: 1.8em;
+}
+#linea-audio-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: .5em;
+
+}
+.linea-audio{
+  width: 100%;
+  height: .5em;
+  border-bottom: 2px solid black;
+}
+#pokedex-actions{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#boton-gris-container{
+  width: 15%;
+  padding-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+#boton-back{
+  width: 2.5em;
+  height: 2.5em;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: #58595B;
+  margin-top: .2em;
+  margin-left: -0.5em;
+  cursor:pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+#boton-back:active{
+  background-color: #414243;
+}
+#boton-gris{
+  width: 3em;
+  height: 3em;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: #58595B;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+#boton-gris:active{
+  background-color: #414243;
+}
+
+.button-text{
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #b4b4b4;
+}
+
+#botones-subpantalla{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#botones{
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#boton-rojo{
+  width: 40%;
+  height: 40%;
+  border: 2px solid black;
+  margin-left: .5em;
+  border-radius: .5em;
+  background-color: #EE1C24;
+}
+#boton-azul{
+  width: 40%;
+  height: 40%;
+  border: 2px solid black;
+  margin-right: .5em;
+  border-radius: .5em;
+  background-color: #00BBAF;
+}
+#subpantalla{
+  width: 100%;
+  height: 70%;
+  border: 2px solid black;
+  margin: 0 .5em;
+  border-radius: 1em;
+  background-color: #152e18;
+}
+#cruceta-container{
+  width: 25%;
+  height: 100%;
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+router-outlet{
+  width: 100%;
+  height: 100%;
+}

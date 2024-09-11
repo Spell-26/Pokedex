@@ -1,0 +1,72 @@
+<div id="container-pokedex">
+  <div id="pokedex-frame">
+    <section id="pokedex-header">
+      <div id="pokedex-header-leds">
+        <div class="led led-azul">
+          <div id="led-interno-azul"></div>
+        </div>
+        <div class="led led-rojo"></div>
+        <div class="led led-amarillo"></div>
+        <div class="led led-verde"></div>
+      </div>
+    </section>
+    <div id="pokedex-display-container">
+      <section class="pokedex-display">
+        <div class="pokedex-display-frame">
+          <div class="led-container">
+            <div id="leds">
+              <div class="leds-rojos"></div>
+              <div class="leds-rojos"></div>
+            </div>
+          </div>
+          <section id="main-content">
+            <router-outlet></router-outlet>
+          </section>
+          <div id="led-audio">
+            <div id="led-rojo-inferior"></div>
+            <div id="salida-audio">
+              <div id="linea-audio-container">
+                <div class="linea-audio"></div>
+                <div class="linea-audio"></div>
+                <div class="linea-audio"></div>
+                <div class="linea-audio"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="pokedex-display display-back">
+        <div class="pokedex-display-frame">
+
+        </div>
+      </section>
+    </div>
+
+    <section id="pokedex-actions">
+      <div id="boton-gris-container">
+        <div id="boton-gris">
+          <span class="button-text">A</span>
+        </div>
+        <div id="boton-back">
+          <span class="button-text">B</span>
+        </div>
+      </div>
+      <div id="botones-subpantalla">
+        <div id="botones">
+          <div id="boton-rojo"></div>
+          <div id="boton-azul"></div>
+        </div>
+        <div id="subpantalla">
+          <app-writing-old-school-terminal></app-writing-old-school-terminal>
+        </div>
+      </div>
+      <div id="cruceta-container">
+        <app-cruceta></app-cruceta>
+      </div>
+    </section>
+  </div>
+  <div id="pokedex-back"></div>
+</div>
+
+<app-audio-player></app-audio-player>
+
