@@ -1,13 +1,18 @@
 <div class="container">
   <div class="pokedex-list">
+    <div class="pokemon-detail-contaier"
+      *ngIf="showPokemonDetails"
+    >
+      <app-pokemon-detail [pokemonDetail]="pokemonPreview" (modalStatus)="closePokemonDetail()"></app-pokemon-detail>
+
+    </div>
     <div class="list">
-      <div 
-        class="list-item" 
+      <div
+        class="list-item"
         *ngFor="let pokemon of pokemonDetails; let i = index"
-        [class.selected]="i === selectedIndex"  
+        [class.selected]="i === selectedIndex"
         #listItem
         (mouseover)="hoveringPokemon(pokemon, i)"
-        (mouseleave)="stopHoveringPokemon()"
       >
         <div class="pokemon-info">
           <img [src]="pokemon.sprites.versions['generation-v']['black-white'].animated['front_default']" alt="">
@@ -22,7 +27,7 @@
           <img src="../../../../../assets/gui-assets/pokeball-background2.png" alt="">
         </div>
       </ng-container>
-      
+
     </div>
   </div>
 </div>

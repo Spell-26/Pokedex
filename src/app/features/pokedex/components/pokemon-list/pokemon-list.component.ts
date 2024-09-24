@@ -18,7 +18,7 @@ export class PokemonListComponent implements OnInit {
   public pokemonPreview : any = null;
 
   // PAGINATION CONFIG
-  currentPage : number = 1; 
+  currentPage : number = 1;
   private pokemonPerPage : number = 20;
   private maxPokemonId : number = 649;
 
@@ -29,6 +29,11 @@ export class PokemonListComponent implements OnInit {
   private directionSubscription !: Subscription;
   @ViewChildren('listItem') listItems!: QueryList<ElementRef>;
 
+  //SUBSCRIPCION A LOS BOTONES DE ACCION (A,B)
+  private actionButtonSubscription !: Subscription;
+
+  // VARIABLES MODAL DETALLES POKEMON
+  public showPokemonDetails : boolean = false;
 
   constructor(
     private pokemonService : PokemonService,
@@ -36,12 +41,11 @@ export class PokemonListComponent implements OnInit {
     private pokemonTypeColorService : PokemonTypeColorsService,
     private crucetaService : CrucetaService,
   ) { }
-  
+
   ngOnInit(): void {
     this.getPokemonPage();
-    this.directionSubscription = this.crucetaService.direction$.subscribe(direction => {
-      this.handleCrucetaDirection(direction);
-    })
+    //subscribirse a las acciones
+    this.subscribeToActions();
   }
 
   handleCrucetaDirection(direction : string) {
@@ -74,6 +78,18 @@ export class PokemonListComponent implements OnInit {
     }
   }
 
+  private handleActionInput(action : string){
+    switch(action){
+      case 'a':
+        this.confirmSelection();
+        break;
+      case 'b':
+        break;
+      default:
+        break;
+    }
+  }
+
   private scrollToSelected(): void {
     const selectedItem = this.listItems.toArray()[this.selectedIndex];
     selectedItem.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -87,9 +103,22 @@ export class PokemonListComponent implements OnInit {
     }
   }
 
+  //función para cerrar el modal de pokemon detail
+  public closePokemonDetail(){
+    //cerrar el modal
+    this.showPokemonDetails = false;
+    //subscribirse a las acciones
+    this.subscribeToActions();
+  }
+
   private confirmSelection() {
     if (this.pokemonPreview) {
-      console.log("Pokemon seleccionado:", this.pokemonPreview);
+      if(this.pokemonPreview){
+        this.showPokemonDetails = true;
+        //desuscribirse de las acciones
+        this.actionButtonSubscription.unsubscribe();
+        this.directionSubscription.unsubscribe();
+      }
     }
   }
 
@@ -107,11 +136,22 @@ export class PokemonListComponent implements OnInit {
     )
   }
 
+  private subscribeToActions(){
+    this.directionSubscription = this.crucetaService.direction$.subscribe(direction => {
+      this.handleCrucetaDirection(direction);
+    });
+
+    this.actionButtonSubscription = this.crucetaService.action$.subscribe(action => {
+    this.handleActionInput(action);
+    });
+  }
+
   private getPokemonDetails() : void {
     this.pokemonList.results.forEach(pokemon => {
       this.pokemonService.getPokemonDetail(pokemon.url).subscribe(
         (result) => {
           this.pokemonDetails.push(result)
+          this.pokemonDetails.sort((a,b) => a.id - b.id)
           //console.log(result)
           if(this.pokemonDetails.length === 1){
             this.selectedIndex = 0; // Seleccionar el primer Pokémon al cargar
@@ -129,10 +169,6 @@ export class PokemonListComponent implements OnInit {
     this.selectedIndex = index
     this.pokemonPreview = pokemon;
   }
-  public stopHoveringPokemon() : void {
-    this.pokemonPreview = null;
-  }
-
   public getTypeColor(typeName : string) : string {
     return this.pokemonTypeColorService.getColorByType(typeName)
   }
@@ -142,7 +178,7 @@ export class PokemonListComponent implements OnInit {
       this.currentPage = pageNumber;
       this.getPokemonPage();
     }
-  } 
+  }
 
   public getTotalPages(): number {
     return Math.ceil(this.maxPokemonId / this.pokemonPerPage);

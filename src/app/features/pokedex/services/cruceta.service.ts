@@ -7,12 +7,18 @@ import { Subject } from 'rxjs';
 export class CrucetaService {
 
   private directionSubject = new Subject<string>();
+  private actionSubject = new Subject<string>();
 
   direction$ = this.directionSubject.asObservable();
+  action$ = this.actionSubject.asObservable();
 
   constructor() { }
 
   public emitDirection(direction : string) {
     this.directionSubject.next(direction);
+  }
+
+  public emitABAction(action : string){
+    this.actionSubject.next(action);
   }
 }

@@ -1,0 +1,23 @@
+<div class="detail-header">
+  <div class="pkm-info-container">
+    <div id="pkm-img-container">
+      <img [src]="pokemonDetail.sprites.versions['generation-v']['black-white'].animated['front_default']" alt="">  <!--Prueba-->
+    </div>
+    <div class="pkm-header-detail">
+      <div class="nombre-index">
+        <span>Pkm: #{{pokemonDetail.id}}</span>
+      </div>
+      <div class="nombre-index">
+        <span>{{capitalizeService.capitalize(pokemonDetail.name)}}</span>
+      </div>
+      <div class="altura">
+        <span>Altura: {{divideHeightInTen(pokemonDetail.height)}} mts</span>
+      </div>
+    </div>
+  </div>
+  <div class="types-container">
+    <div class="detail-types" *ngFor="let type of pokemonDetail.types" [style.background-color]="getTypeColor(type.type.name)">
+      {{capitalizeService.capitalize(type.type.name)}}
+    </div>
+  </div>
+</div>

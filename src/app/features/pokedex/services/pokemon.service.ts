@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {Observable} from "rxjs";
 import {PokemonList} from "../interfaces/pokemonList";
 import {PokemonDetail} from "../interfaces/pokemonDetail";
