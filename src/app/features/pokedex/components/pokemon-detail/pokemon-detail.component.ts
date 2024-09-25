@@ -19,6 +19,9 @@ export class PokemonDetailComponent implements OnInit {
   //Señal para saber cuando se va a cerrar el modal
   @Output() modalStatus = new EventEmitter<boolean>();
 
+  public currentTab : string = '1';
+  public pkmDescription : string = '';
+
   constructor(
     public capitalizeService : CapitalizeService,
     private pokemonTypeColorService : PokemonTypeColorsService,
@@ -48,8 +51,10 @@ export class PokemonDetailComponent implements OnInit {
       case 'down':
         break;
       case 'left':
+        this.changeTab('1')
         break;
       case 'right':
+        this.changeTab('2')
         break;
       default:
         break;
@@ -92,7 +97,12 @@ export class PokemonDetailComponent implements OnInit {
   private getPokemonDescription(pokemonName : string) : void {
     this.descriptionGenerator.getPokemonDescription(pokemonName)
       .subscribe(
-        result => console.log(result)
+        result => {
+          this.pkmDescription = result.response}
       )
+  }
+
+  public changeTab(target : string) : void {
+    this.currentTab = target
   }
 }

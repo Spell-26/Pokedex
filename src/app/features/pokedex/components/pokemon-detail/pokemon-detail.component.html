@@ -21,3 +21,32 @@
     </div>
   </div>
 </div>
+<div class="tab-container">
+  <div id="tab">
+    <header id="tab-header">
+      <div id="pkm-description" class="header-tab" (click)="changeTab('1')" [class.selected]="currentTab == '1'">
+        <span>Información</span>
+      </div>
+      <div id="pkm-stats" class="header-tab" (click)="changeTab('2')" [class.selected]="currentTab == '2'">
+        <span>Estadísticas</span>
+      </div>
+    </header>
+    <div id="content-container">
+      <ng-container *ngIf="currentTab == '1'">
+        <div id="description">
+          <p>{{pkmDescription}}</p>
+          <span id="disclaimer">Estas descripciones son
+            creadas con IA y pueden no ser acertadas.</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentTab == '2'">
+        <div id="chart-container">
+          <app-radar-chart [pokemonDetail]="pokemonDetail"></app-radar-chart>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+
+

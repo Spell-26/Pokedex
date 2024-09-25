@@ -11,7 +11,7 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
 import { CrucetaComponent } from './components/cruceta/cruceta.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { ABButtonsComponent } from './components/a-b-buttons/a-b-buttons.component';
-
+import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
 
 
 @NgModule({
@@ -29,6 +29,7 @@ import { ABButtonsComponent } from './components/a-b-buttons/a-b-buttons.compone
     CommonModule,
     PokedexRoutingModule,
     RouterOutlet,
+    RadarChartComponent,
   ]
 })
 export class PokedexModule { }
